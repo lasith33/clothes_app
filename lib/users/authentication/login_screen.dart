@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen>
                   //login screen sign-in form
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Container(
+                    child: Container( // implement the decoration
                       decoration: const BoxDecoration(
                         color: Colors.white24,
                         borderRadius: BorderRadius.all(
@@ -199,6 +199,14 @@ class _LoginScreenState extends State<LoginScreen>
 
                                 ],
                               ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,  //row wiget center the horizontaly
+                              children: [
+                                Text(
+                                  "Don't have an Account ?"
+                                ),
+                              ],
                             ),
                           ],
                         ),
