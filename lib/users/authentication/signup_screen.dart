@@ -1,20 +1,21 @@
-import 'package:clothes_app/users/authentication/signup_screen.dart';
+import 'package:clothes_app/users/authentication/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 
-class LoginScreen extends StatefulWidget
+class SingUpScreen extends StatefulWidget
 {
 
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SingUpScreen> createState() => _SingUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen>
+class _SingUpScreenState extends State<SingUpScreen>
 {
   var formKey = GlobalKey<FormState>();
+  var nameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var isObsecure = true.obs;
@@ -28,18 +29,18 @@ class _LoginScreenState extends State<LoginScreen>
         builder: (context, cons)
         {
           return ConstrainedBox(
-              constraints:BoxConstraints(
-                minHeight: cons.maxHeight,
-              ),
+            constraints:BoxConstraints(
+              minHeight: cons.maxHeight,
+            ),
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  //loging screen header
+                  //singup screen header
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 285,
                     child: Image.asset(
-                      "images/shoping.jpg",
+                      "images/register.jpg",
                     ),
                   ),
 
@@ -117,64 +118,64 @@ class _LoginScreenState extends State<LoginScreen>
 
                                   //password
                                   Obx(
-                                      ()=> TextFormField(
-                                        controller: passwordController,
-                                        obscureText: isObsecure.value,
-                                        validator: (val) => val =="" ? "Please write password" : null,
-                                        decoration: InputDecoration(
-                                          prefixIcon: const Icon(
-                                            Icons.vpn_key_sharp,
-                                            color: Colors.black,
-                                          ),
-                                          suffixIcon: Obx(              //hidden password icon
-                                                ()=> GestureDetector(
-                                              onTap: ()
-                                              {
-                                                isObsecure.value = !isObsecure.value; // hiden the password
-                                              },
-                                              child: Icon(
-                                                isObsecure.value ? Icons.visibility_off : Icons.visibility,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          hintText: "passsword...",
-                                          border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(30),
-                                            borderSide: BorderSide(
-                                              color: Colors.white60,
-                                            ),
-                                          ),
-                                          enabledBorder:  OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(30),
-                                            borderSide: BorderSide(
-                                              color: Colors.white60,
-                                            ),
-                                          ),
-                                          focusedBorder:  OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(30),
-                                            borderSide: BorderSide(
-                                              color: Colors.white60,
-                                            ),
-                                          ),
-                                          disabledBorder:  OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(30),
-                                            borderSide: BorderSide(
-                                              color: Colors.white60,
-                                            ),
-                                          ),
-                                          contentPadding: const EdgeInsets.symmetric(
-                                            horizontal: 14,
-                                            vertical: 6,
-                                          ),
-                                          fillColor: Colors.white, //fill the withe color in the  text box
-                                          filled: true,
+                                        ()=> TextFormField(
+                                      controller: passwordController,
+                                      obscureText: isObsecure.value,
+                                      validator: (val) => val =="" ? "Please write password" : null,
+                                      decoration: InputDecoration(
+                                        prefixIcon: const Icon(
+                                          Icons.vpn_key_sharp,
+                                          color: Colors.black,
                                         ),
+                                        suffixIcon: Obx(              //hidden password icon
+                                              ()=> GestureDetector(
+                                            onTap: ()
+                                            {
+                                              isObsecure.value = !isObsecure.value; // hiden the password
+                                            },
+                                            child: Icon(
+                                              isObsecure.value ? Icons.visibility_off : Icons.visibility,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                        hintText: "passsword...",
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                          borderSide: BorderSide(
+                                            color: Colors.white60,
+                                          ),
+                                        ),
+                                        enabledBorder:  OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                          borderSide: BorderSide(
+                                            color: Colors.white60,
+                                          ),
+                                        ),
+                                        focusedBorder:  OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                          borderSide: BorderSide(
+                                            color: Colors.white60,
+                                          ),
+                                        ),
+                                        disabledBorder:  OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                          borderSide: BorderSide(
+                                            color: Colors.white60,
+                                          ),
+                                        ),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                          horizontal: 14,
+                                          vertical: 6,
+                                        ),
+                                        fillColor: Colors.white, //fill the withe color in the  text box
+                                        filled: true,
                                       ),
+                                    ),
                                   ),
 
                                   const SizedBox(height: 18,),
-                                   //button
+                                  //button
                                   Material(     // loging button create
                                     color: Colors.black,
                                     borderRadius: BorderRadius.circular(30),
@@ -217,7 +218,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 TextButton(
                                   onPressed: ()
                                   {
-                                    Get.to(SingUpScreen());// link  the sing up screen
+
                                   },
                                   child: const Text(
                                     "Singup Here",
