@@ -44,7 +44,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                     ),
                   ),
 
-                  //login screen sign-in form
+                  //singup screen singup form
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Container( // implement the decoration
@@ -66,11 +66,56 @@ class _SingUpScreenState extends State<SingUpScreen>
                         child: Column(
                           children: [
 
-                            //email -password loging button
+                            //name email -password singup button
                             Form(
                               key: formKey,
                               child: Column(
                                 children: [
+                                  //name
+                                  TextFormField(
+                                    controller: nameController,
+                                    validator: (val) => val =="" ? "Please write name" : null,
+                                    decoration: InputDecoration(
+                                      prefixIcon: const Icon(
+                                        Icons.person,
+                                        color: Colors.black,
+                                      ),
+                                      hintText: "name...",
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: BorderSide(
+                                          color: Colors.white60,
+                                        ),
+                                      ),
+                                      enabledBorder:  OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: BorderSide(
+                                          color: Colors.white60,
+                                        ),
+                                      ),
+                                      focusedBorder:  OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: BorderSide(
+                                          color: Colors.white60,
+                                        ),
+                                      ),
+                                      disabledBorder:  OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: BorderSide(
+                                          color: Colors.white60,
+                                        ),
+                                      ),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                        horizontal: 14,
+                                        vertical: 6,
+                                      ),
+                                      fillColor: Colors.white, //fill the withe color in the  text box
+                                      filled: true,
+                                    ),
+                                  ),
+
+                                  const SizedBox(height: 18,),
+
                                   //email
                                   TextFormField(
                                     controller: emailController,
@@ -176,7 +221,7 @@ class _SingUpScreenState extends State<SingUpScreen>
 
                                   const SizedBox(height: 18,),
                                   //button
-                                  Material(     // loging button create
+                                  Material(     // singup button create
                                     color: Colors.black,
                                     borderRadius: BorderRadius.circular(30),
                                     child: InkWell(
@@ -191,7 +236,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                                           horizontal: 28,
                                         ),
                                         child: Text(
-                                          "Login",
+                                          "Sing up",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16,
@@ -205,23 +250,23 @@ class _SingUpScreenState extends State<SingUpScreen>
                               ),
                             ),
 
-                            SizedBox(height: 16,),
+                            const SizedBox(height: 16,),
 
-                            //dont have an account button
+                            //already have an account button
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,  //row wiget center the horizontaly
                               children: [
                                 const Text(
-                                  "Don't have an Account ?",
+                                  "Already have an Account ?",
 
                                 ),
                                 TextButton(
                                   onPressed: ()
                                   {
-
+                                    Get.to(LoginScreen());
                                   },
                                   child: const Text(
-                                    "Singup Here",
+                                    "Login Here",
                                     style: TextStyle(
                                       color: Colors.purpleAccent,
                                       fontSize: 16,
@@ -231,37 +276,6 @@ class _SingUpScreenState extends State<SingUpScreen>
                               ],
                             ),
 
-                            const Text(
-                              "OR",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 16,
-                              ),
-                            ),
-
-                            //are you an admin-button
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,  //row wiget center the horizontaly
-                              children: [
-                                const Text(
-                                  "Are you Admin ?",
-
-                                ),
-                                TextButton(
-                                  onPressed: ()
-                                  {
-
-                                  },
-                                  child: const Text(
-                                    "Click Here",
-                                    style: TextStyle(
-                                      color: Colors.purpleAccent,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                           ],
                         ),
                       ),
