@@ -1,7 +1,12 @@
+import 'dart:convert';
+
+import 'package:clothes_app/api_connection/api_connection.dart';
 import 'package:clothes_app/users/authentication/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:http/http.dart' as http;
 
 
 class SingUpScreen extends StatefulWidget
@@ -19,6 +24,38 @@ class _SingUpScreenState extends State<SingUpScreen>
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var isObsecure = true.obs;
+
+  validateUserEmail() async
+  {
+    try
+    {
+      var res = await http.post(
+        Uri.parse(API.validateEmail),
+        body: {
+          'user_email': emailController.text.trim(),
+        },
+      );
+
+      if(res.statusCode == 200) //connection with api to server success
+        {
+          var resBodyOfValidateEmail = jsonDecode(res.body);
+
+          if(resBodyOfValidateEmail['emailFound'] == true)
+            {
+              Fluttertoast.showToast(msg: "Email is already in someone else use.try another email");
+            }
+          else
+            {
+              //register & save new user record to database
+            }
+        }
+
+    }
+    catch(e)
+    {
+
+    }
+  }
 
   @override
   Widget build(BuildContext context)
@@ -227,7 +264,11 @@ class _SingUpScreenState extends State<SingUpScreen>
                                     child: InkWell(
                                       onTap: ()
                                       {
-
+                                        if(formKey.currentState!.validate())
+                                        {
+                                          //validate the user email
+                                          validateUserEmail();
+                                        }
                                       },
                                       borderRadius: BorderRadius.circular(30),
                                       child: const Padding(
