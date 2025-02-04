@@ -1,7 +1,7 @@
 import 'dart:convert';
-
 import 'package:clothes_app/api_connection/api_connection.dart';
 import 'package:clothes_app/users/authentication/login_screen.dart';
+import 'package:clothes_app/users/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -47,13 +47,49 @@ class _SingUpScreenState extends State<SingUpScreen>
           else
             {
               //register & save new user record to database
+              registerAndSaveUserRecord();
             }
         }
 
     }
     catch(e)
     {
+      print(e.toString());
+      Fluttertoast.showToast(msg: e.toString());
+    }
+  }
 
+  registerAndSaveUserRecord() async
+  {
+    User userModel = User(
+      1,
+      nameController.text.trim(),
+      emailController.text.trim(),
+      passwordController.text.trim(),
+    );
+    try
+    {
+      var res = await http.post(
+        Uri.parse(API.singUp),
+        body: userModel.toJson(),
+      );
+      if(res.statusCode == 200)
+      {
+        var resBodyOfSignUp = jsonDecode(res.body);
+        if(resBodyOfSignUp['success'] == true)
+        {
+          Fluttertoast.showToast(msg: "congratulations,you are SingUp successfully");
+        }
+        else
+        {
+          Fluttertoast.showToast(msg: "Error signup");
+        }
+      }
+    }
+    catch(e)
+    {
+      print(e.toString());
+      Fluttertoast.showToast(msg: e.toString());
     }
   }
 
@@ -277,7 +313,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                                           horizontal: 28,
                                         ),
                                         child: Text(
-                                          "Sing up",
+                                          "Singup",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16,
