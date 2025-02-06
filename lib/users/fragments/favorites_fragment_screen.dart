@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class OrderFragmentScreen extends StatelessWidget
+class FavoritesFragmentScreen extends StatelessWidget
 {
 
 
@@ -10,7 +10,7 @@ class OrderFragmentScreen extends StatelessWidget
     return Scaffold(
       body: Center(
         child: Text(
-            "Order Fragment Screen"
+            "Favorites Fragment Screen"
         ),
       ),
     );
