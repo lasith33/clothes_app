@@ -79,6 +79,12 @@ class _SingUpScreenState extends State<SingUpScreen>
         if(resBodyOfSignUp['success'] == true)
         {
           Fluttertoast.showToast(msg: "congratulations,you are SingUp successfully");
+
+          setState(() {
+            nameController.clear();
+            emailController.clear();
+            passwordController.clear();
+          });
         }
         else
         {

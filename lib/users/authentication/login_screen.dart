@@ -1,7 +1,12 @@
 import 'package:clothes_app/users/authentication/signup_screen.dart';
+import 'package:clothes_app/users/model/user.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:clothes_app/api_connection/api_connection.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
 
 
 class LoginScreen extends StatefulWidget
@@ -18,6 +23,32 @@ class _LoginScreenState extends State<LoginScreen>
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var isObsecure = true.obs;
+
+  loginUserNow() async
+  {
+    var res = await http.post(
+      Uri.parse(API.login),
+      body: {
+        "user_email": emailController.text.trim(),
+        "user_password": passwordController.text.trim(),
+      },
+    );
+
+    if(res.statusCode == 200)
+    {
+      var resBodyOfLogin = jsonDecode(res.body);
+      if(resBodyOfLogin['success'] == true)
+      {
+        Fluttertoast.showToast(msg: "congratulations,you are login successfully");
+
+        User userInfo = User.fromJson(resBodyOfLogin["userData"]);
+      }
+      else
+      {
+        Fluttertoast.showToast(msg: "please enter correct password or email");
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context)
@@ -181,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen>
                                     child: InkWell(
                                       onTap: ()
                                       {
-
+                                        loginUserNow();
                                       },
                                       borderRadius: BorderRadius.circular(30),
                                       child: const Padding(

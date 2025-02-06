@@ -5,4 +5,5 @@ class API
   //singUp user
   static const validateEmail = "$hostConnect/user/validate_email.php";
   static const singUp = "$hostConnect/user/singup.php";
+  static const login = "$hostConnect/user/login.php";
 }
