@@ -1,5 +1,7 @@
 import 'package:clothes_app/users/authentication/signup_screen.dart';
+import 'package:clothes_app/users/fragments/dashbord_of_fragments.dart';
 import 'package:clothes_app/users/model/user.dart';
+import 'package:clothes_app/users/userPreferences/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:clothes_app/api_connection/api_connection.dart';
@@ -26,28 +28,43 @@ class _LoginScreenState extends State<LoginScreen>
 
   loginUserNow() async
   {
-    var res = await http.post(
-      Uri.parse(API.login),
-      body: {
-        "user_email": emailController.text.trim(),
-        "user_password": passwordController.text.trim(),
-      },
-    );
+   try
+   {
+     var res = await http.post(
+       Uri.parse(API.login),
+       body: {
+         "user_email": emailController.text.trim(),
+         "user_password": passwordController.text.trim(),
+       },
+     );
 
-    if(res.statusCode == 200)
-    {
-      var resBodyOfLogin = jsonDecode(res.body);
-      if(resBodyOfLogin['success'] == true)
-      {
-        Fluttertoast.showToast(msg: "congratulations,you are login successfully");
+     if(res.statusCode == 200)
+     {
+       var resBodyOfLogin = jsonDecode(res.body);
+       if(resBodyOfLogin['success'] == true)
+       {
+         Fluttertoast.showToast(msg: "congratulations,you are login successfully");
 
-        User userInfo = User.fromJson(resBodyOfLogin["userData"]);
-      }
-      else
-      {
-        Fluttertoast.showToast(msg: "please enter correct password or email");
-      }
-    }
+         User userInfo = User.fromJson(resBodyOfLogin["userData"]);
+
+         //save  userInfo to local storage using shared preference
+         await RememberUserPrefs.storeUserInfo(userInfo);
+
+         Future.delayed(Duration(milliseconds: 2000), ()
+         {
+           Get.to(DashbordOfFragments());
+         });
+       }
+       else
+       {
+         Fluttertoast.showToast(msg: "please enter correct password or email");
+       }
+     }
+   }
+   catch(errorMsg)
+   {
+     print("error ::" + errorMsg.toString());
+   }
   }
 
   @override
@@ -212,7 +229,10 @@ class _LoginScreenState extends State<LoginScreen>
                                     child: InkWell(
                                       onTap: ()
                                       {
-                                        loginUserNow();
+                                        if(formKey.currentState!.validate())
+                                        {
+                                          loginUserNow();
+                                        }
                                       },
                                       borderRadius: BorderRadius.circular(30),
                                       child: const Padding(
