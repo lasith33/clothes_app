@@ -1,4 +1,6 @@
+import 'package:clothes_app/users/authentication/login_screen.dart';
 import 'package:clothes_app/users/userPreferences/current_user.dart';
+import 'package:clothes_app/users/userPreferences/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +9,61 @@ class ProfileFragmentScreen extends StatelessWidget
 {
 
   final CurrentUser _currentUser =Get.put(CurrentUser());
+
+  signOutUser() async
+  {
+    var resultResponse = await Get.dialog(
+      AlertDialog(
+        backgroundColor: Colors.grey,
+        title: Text(
+          "Logout",
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        content: const Text(
+          "Are you sure?\nyou want to logout from app?",
+        ),
+        actions: [
+          TextButton(
+              onPressed: ()
+              {
+                Get.back();
+              },
+              child: const Text(
+                "No",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+          ),
+          TextButton(
+            onPressed: ()
+            {
+              Get.back(result: "loggedOut");
+            },
+            child: const Text(
+              "yes",
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
+    if(resultResponse == "loggedOut")
+      {
+        //delete-remove the user data from
+        RememberUserPrefs.removeUserInfo()
+            .then((value)
+        {
+          Get.off(LoginScreen());
+        });
+      }
+  }
 
   Widget userInfoItemProfile(IconData iconData,String userData)
   {
@@ -70,7 +127,7 @@ class ProfileFragmentScreen extends StatelessWidget
             child: InkWell(
               onTap: ()
               {
-                
+                signOutUser();
               },
               borderRadius: BorderRadius.circular(32),
               child: const Padding(
