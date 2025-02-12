@@ -1,4 +1,5 @@
 import 'package:clothes_app/users/fragments/widget/homeappbar.dart';
+import 'package:clothes_app/users/fragments/widget/image_slidebar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,13 +13,14 @@ class HomeFragmentScreen extends StatefulWidget
 }
 
 class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
+  int currentSlider =0;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -49,9 +51,17 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
               ),
             ],
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 8),
             //for search bar
-            homeappbar(),
+            const homeappbar(),
+
+            const SizedBox(height: 8),
+
+            image_slidebar(currentSlide: currentSlider, onChange: (value){ setState(() {
+              currentSlider =value;
+            },);
+            },
+            ),
           ],
         ),
         ),

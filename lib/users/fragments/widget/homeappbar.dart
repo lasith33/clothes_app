@@ -9,7 +9,7 @@ class  homeappbar extends StatelessWidget {
       width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.grey[300],
-            borderRadius: BorderRadius.circular(3)
+            borderRadius: BorderRadius.circular(25),
         ),
       padding: EdgeInsets.symmetric(horizontal: 20,vertical: 0.5),
       child: Row(
