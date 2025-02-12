@@ -1,3 +1,4 @@
+import 'package:clothes_app/users/fragments/widget/homeappbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -34,7 +35,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
                 onPressed: (){},
                 icon: Image.asset(
                   "images/icon.png",
-                  height: 20,
+                  height: 15,
                 ),
               ),
               IconButton(
@@ -43,14 +44,14 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
                   padding: const EdgeInsets.all(20),
                 ),
                 onPressed: (){},
-                  iconSize: 30,
+                  iconSize: 20,
                 icon:Icon(Icons.notifications_outlined)
               ),
             ],
             ),
             const SizedBox(height: 20),
             //for search bar
-
+            homeappbar(),
           ],
         ),
         ),
