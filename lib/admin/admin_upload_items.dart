@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:clothes_app/admin/admin_login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -185,6 +186,46 @@ class _AdminUploadItemsScreenState extends State<AdminUploadItemsScreen> {
    {
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.black12,
+                Colors.deepPurple,
+              ],
+            ),
+          ),
+        ),
+        automaticallyImplyLeading: false,
+        title: const Text(
+          "Upload Form"
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: ()
+          {
+            Get.to(AdminLoginScreen());
+          },
+          icon: const Icon(
+            Icons.clear,
+          ),
+        ),
+        actions: [
+          TextButton(
+              onPressed: ()
+              {
+                Get.to(AdminLoginScreen());
+              },
+              child: const Text(
+                "dene",
+                style: TextStyle(
+                color: Colors.green,
+              ),
+              )
+          ),
+        ],
+      ),
       body: ListView(
         children: [
           Container(
