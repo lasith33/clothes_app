@@ -1,6 +1,7 @@
 import 'package:clothes_app/users/fragments/widget/category.dart';
 import 'package:clothes_app/users/fragments/widget/homeappbar.dart';
 import 'package:clothes_app/users/fragments/widget/image_slidebar.dart';
+import 'package:clothes_app/users/fragments/widget/product_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -66,6 +67,40 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
             const SizedBox(height: 8),
             // for category selector
            const categoriesls(),
+            
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Special For you",
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800
+                  ),
+                ),
+                Text(
+                  "See all",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: Colors.black54,
+                  ),
+                ),
+               // SizedBox(width: 10,)
+              ],
+            ),
+            // for shopping items
+            GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
+              itemCount: products.length,
+              itemBuilder: (context,index){
+                  return;
+              },
+            )
           ],
         ),
         ),
