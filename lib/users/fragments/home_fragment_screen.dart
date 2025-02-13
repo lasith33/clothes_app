@@ -1,3 +1,4 @@
+import 'package:clothes_app/users/fragments/widget/category.dart';
 import 'package:clothes_app/users/fragments/widget/homeappbar.dart';
 import 'package:clothes_app/users/fragments/widget/image_slidebar.dart';
 import 'package:flutter/cupertino.dart';
@@ -56,12 +57,15 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
             const homeappbar(),
 
             const SizedBox(height: 8),
-
+            //silderbar
             image_slidebar(currentSlide: currentSlider, onChange: (value){ setState(() {
               currentSlider =value;
             },);
             },
             ),
+            const SizedBox(height: 8),
+            // for category selector
+           const categoriesls(),
           ],
         ),
         ),
