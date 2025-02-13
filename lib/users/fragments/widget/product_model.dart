@@ -31,7 +31,7 @@ final List<Product> products = [
   Product(
     title: "Wireless Headphone",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "image/man.jpg",
+    image: "images/trouse1.jpg",
     price: 120,
     seller: "Tariqul Islam",
     colors: [
@@ -47,7 +47,39 @@ final List<Product> products = [
   Product(
     title: "Wireless Headphone",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "image/man.jpg",
+    image: "images/trouserr2.jpg",
+    price: 120,
+    seller: "Tariqul Islam",
+    colors: [
+      Colors.black,
+      Colors.blue,
+      Colors.orange,
+    ],
+    category: "Electronic",
+    review: "(320 Reviews)",
+    rate: 4.8,
+    quantity: 1,
+  ),
+  Product(
+    title: "Wireless Headphone",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "images/trouserr2.jpg",
+    price: 120,
+    seller: "Tariqul Islam",
+    colors: [
+      Colors.black,
+      Colors.blue,
+      Colors.orange,
+    ],
+    category: "Electronic",
+    review: "(320 Reviews)",
+    rate: 4.8,
+    quantity: 1,
+  ),
+  Product(
+    title: "Wireless Headphone",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "images/trouserr2.jpg",
     price: 120,
     seller: "Tariqul Islam",
     colors: [

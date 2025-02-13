@@ -1,6 +1,7 @@
 import 'package:clothes_app/users/fragments/widget/category.dart';
 import 'package:clothes_app/users/fragments/widget/homeappbar.dart';
 import 'package:clothes_app/users/fragments/widget/image_slidebar.dart';
+import 'package:clothes_app/users/fragments/widget/product_cart.dart';
 import 'package:clothes_app/users/fragments/widget/product_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -98,7 +99,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
                 ),
               itemCount: products.length,
               itemBuilder: (context,index){
-                  return;
+                  return ProductCart(product: products[index],);
               },
             )
           ],
