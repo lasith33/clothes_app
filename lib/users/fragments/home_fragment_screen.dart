@@ -96,6 +96,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
+                  childAspectRatio: 0.78,
                 ),
               itemCount: products.length,
               itemBuilder: (context,index){
