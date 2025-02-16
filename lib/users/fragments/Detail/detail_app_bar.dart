@@ -10,7 +10,7 @@ class DetailAppBar extends StatelessWidget {
       child: Row(children: [
         IconButton(
             style: IconButton.styleFrom(
-              backgroundColor: Colors.grey,
+              backgroundColor: Colors.white,
               padding: const EdgeInsets.all(15),
             ),
           onPressed: (){},
@@ -19,7 +19,7 @@ class DetailAppBar extends StatelessWidget {
         const Spacer(),
         IconButton(
           style: IconButton.styleFrom(
-            backgroundColor: Colors.grey,
+            backgroundColor: Colors.white,
             padding: const EdgeInsets.all(15),
           ),
           onPressed: (){},
@@ -28,7 +28,7 @@ class DetailAppBar extends StatelessWidget {
         const SizedBox(width: 10,),
         IconButton(
           style: IconButton.styleFrom(
-            backgroundColor: Colors.grey,
+            backgroundColor: Colors.white,
             padding: const EdgeInsets.all(15),
           ),
           onPressed: (){},
