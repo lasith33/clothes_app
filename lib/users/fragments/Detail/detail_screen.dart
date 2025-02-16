@@ -13,6 +13,7 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   int currentImage =0;
+  //int currentSlide =0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +28,30 @@ class _DetailScreenState extends State<DetailScreen> {
                 setState(() {
                   currentImage = index;
                 });
-              })
+              },
+              ),
+               const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:
+                List.generate(5,
+                      (index) => AnimatedContainer(
+                    duration: const Duration(microseconds: 300),
+                    width: currentImage == index ?15: 8,
+                    height: 8,
+                    margin: const  EdgeInsets.only(right: 3),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: currentImage == index
+                            ? Colors.black
+                            :Colors.transparent,
+                        border: Border.all(
+                          color: Colors.black,
+                        )
+                    ),
+                  ),
+                ),
+              ),
             ],
           )),
     );
