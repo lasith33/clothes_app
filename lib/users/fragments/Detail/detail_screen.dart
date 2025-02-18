@@ -22,6 +22,7 @@ class _DetailScreenState extends State<DetailScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: AddtoCart(product :widget.product),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
