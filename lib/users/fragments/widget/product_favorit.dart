@@ -1,18 +1,18 @@
 import 'package:clothes_app/users/fragments/Detail/detail_screen.dart';
-import 'package:clothes_app/users/fragments/widget/product_model.dart';
+import 'package:clothes_app/users/fragments/widget/favorit_model.dart';
 
 import 'package:flutter/material.dart';
 
-class ProductCart extends StatelessWidget {
-  final Product product;
+class ProductFavorit extends StatelessWidget {
+  final Pro pro;
 
-  const ProductCart({super.key, required this.product});
+  const ProductFavorit({super.key, required this.pro});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>  DetailScreen(product: product,),),);
+        //Navigator.push(context, MaterialPageRoute(builder: (context)=>  DetailSfcreen(pro: pro,),),);
       },
       child: Stack(
         children: [
@@ -28,20 +28,20 @@ class ProductCart extends StatelessWidget {
                 SizedBox(height: 10),
                 Center(
                   child: Hero(
-                    tag: product.image,
+                    tag: pro.image,
                     child: Image.asset(
-                      product.image,
+                      pro.image,
                       width: 130,
                       height: 130,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                  SizedBox(height: 10),
-                 Padding(
-                    padding: EdgeInsets.only(left: 15),
+                SizedBox(height: 10),
+                Padding(
+                  padding: EdgeInsets.only(left: 15),
                   child: Text(
-                    product.title,
+                    pro.title,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -52,8 +52,8 @@ class ProductCart extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                     Text(
-                      "\$${product.price}",
+                    Text(
+                      "\$${pro.price}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -61,24 +61,24 @@ class ProductCart extends StatelessWidget {
                     ),
                     Row(
                       children: List.generate(
-                          product.colors.length,
-                          (index)=> Container(
-                            width: 18,
-                            height: 18,
-                            margin: const EdgeInsets.only(right: 4),
-                            decoration: BoxDecoration(
-                              color: product.colors[index],
-                              shape: BoxShape.circle,
-                            ),
+                        pro.colors.length,
+                            (index)=> Container(
+                          width: 18,
+                          height: 18,
+                          margin: const EdgeInsets.only(right: 4),
+                          decoration: BoxDecoration(
+                            color: pro.colors[index],
+                            shape: BoxShape.circle,
                           ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ],
             ),
-        )
-      ],),
+          )
+        ],),
     );
   }
 }

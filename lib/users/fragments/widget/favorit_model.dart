@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-class Product {
+class Pro {
   final String title;
   final String description;
   final String image;
@@ -13,7 +12,7 @@ class Product {
   final double rate;
   int quantity;
 
-  Product({
+  Pro({
     required this.title,
     required this.review,
     required this.description,
@@ -27,8 +26,8 @@ class Product {
   });
 }
 
-final List<Product> products = [
-  Product(
+final List<Pro> pro = [
+  Pro(
     title: "Trouser",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "images/trouse1.jpg",
@@ -44,10 +43,10 @@ final List<Product> products = [
     rate: 4.8,
     quantity: 1,
   ),
-  Product(
+  Pro(
     title: "Trouser",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "images/trouserr2.jpg",
+    image: "images/shirt.jpg",
     price: 120,
     seller: "Tariqul Islam",
     colors: [
@@ -60,56 +59,8 @@ final List<Product> products = [
     rate: 4.8,
     quantity: 1,
   ),
-  Product(
-    title: "Wireless Headphone",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "images/tshirt1.jpg",
-    price: 120,
-    seller: "Tariqul Islam",
-    colors: [
-      Colors.black,
-      Colors.blue,
-      Colors.orange,
-    ],
-    category: "Electronic",
-    review: "(320 Reviews)",
-    rate: 4.8,
-    quantity: 1,
-  ),
-  Product(
-    title: "Wireless Headphone",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "images/shirt.jpg",
-    price: 120,
-    seller: "Tariqul Islam",
-    colors: [
-      Colors.black,
-      Colors.blue,
-      Colors.orange,
-    ],
-    category: "Electronic",
-    review: "(320 Reviews)",
-    rate: 4.8,
-    quantity: 1,
-  ),
-  Product(
-    title: "Wireless Headphone",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "images/shirt1.jpg",
-    price: 120,
-    seller: "Tariqul Islam",
-    colors: [
-      Colors.black,
-      Colors.blue,
-      Colors.orange,
-    ],
-    category: "Electronic",
-    review: "(320 Reviews)",
-    rate: 4.8,
-    quantity: 1,
-  ),
-  Product(
-    title: "Wireless Headphone",
+  Pro(
+    title: "Trouser",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "images/shirt2.jpg",
     price: 120,
@@ -119,15 +70,15 @@ final List<Product> products = [
       Colors.blue,
       Colors.orange,
     ],
-    category: "Electronic",
+    category: "trouser",
     review: "(320 Reviews)",
     rate: 4.8,
     quantity: 1,
   ),
-  Product(
-    title: "Wireless Headphone",
+  Pro(
+    title: "Trouser",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "images/frock4.jpg",
+    image: "images/shirt1.jpg",
     price: 120,
     seller: "Tariqul Islam",
     colors: [
@@ -135,25 +86,10 @@ final List<Product> products = [
       Colors.blue,
       Colors.orange,
     ],
-    category: "Electronic",
+    category: "trouser",
     review: "(320 Reviews)",
     rate: 4.8,
     quantity: 1,
   ),
-  Product(
-    title: "Wireless Headphone",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "images/frock3.jpg",
-    price: 120,
-    seller: "Tariqul Islam",
-    colors: [
-      Colors.black,
-      Colors.blue,
-      Colors.orange,
-    ],
-    category: "Electronic",
-    review: "(320 Reviews)",
-    rate: 4.8,
-    quantity: 1,
-  ),
+
 ];
